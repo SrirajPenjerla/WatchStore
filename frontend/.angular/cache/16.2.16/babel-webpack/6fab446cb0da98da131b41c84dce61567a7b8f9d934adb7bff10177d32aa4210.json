@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { CartComponent } from './components/cart/cart.component';\nimport { CheckoutComponent } from './components/checkout/checkout.component';\nexport const routes = [{\n  path: '',\n  component: CartComponent\n}, {\n  path: 'checkout',\n  component: CheckoutComponent\n}];","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}

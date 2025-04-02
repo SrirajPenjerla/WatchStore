@@ -1,0 +1,88 @@
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">
+      <span class="gold-text">Royal Watches</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/products" routerLinkActive="active">Collection</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/cart" routerLinkActive="active">
+            Cart
+            <span class="badge bg-secondary" *ngIf="cartItemCount$ | async as count">{{count}}</span>
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="!(isLoggedIn$ | async)">
+          <a class="nav-link" routerLink="/auth/login" routerLinkActive="active">Login</a>
+        </li>
+        <li class="nav-item" *ngIf="!(isLoggedIn$ | async)">
+          <a class="nav-link" routerLink="/auth/register" routerLinkActive="active">Register</a>
+        </li>
+        <li class="nav-item dropdown" *ngIf="isLoggedIn$ | async">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+            Account
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" routerLink="/profile">Profile</a></li>
+            <li><a class="dropdown-item" routerLink="/orders">Orders</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#" (click)="logout()">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<main class="main-content">
+  <router-outlet></router-outlet>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h5 class="footer-title">Royal Watches</h5>
+        <p>Experience luxury and precision with our exclusive collection of timepieces.</p>
+      </div>
+      <div class="col-md-4">
+        <h5 class="footer-title">Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a class="footer-link" routerLink="/products">Collection</a></li>
+          <li><a class="footer-link" routerLink="/about">About Us</a></li>
+          <li><a class="footer-link" routerLink="/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h5 class="footer-title">Contact Us</h5>
+        <ul class="list-unstyled">
+          <li>Email: info@royalwatches.com</li>
+          <li>Phone: +1 (555) 123-4567</li>
+          <li>Address: 123 Luxury Lane, Premium City</li>
+        </ul>
+      </div>
+    </div>
+    <hr class="mt-4 mb-4" style="border-color: rgba(255,255,255,0.1);">
+    <div class="text-center">
+      <p class="mb-0">&copy; 2024 Royal Watches. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Toast Container -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div *ngIf="toastMessage" class="toast" [ngClass]="toastType">
+    {{ toastMessage }}
+  </div>
+</div> 

@@ -1,0 +1,103 @@
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="container">
+    <div class="row align-items-center min-vh-100">
+      <div class="col-lg-6">
+        <h1 class="display-4 gold-text mb-4">Timeless Elegance, Royal Heritage</h1>
+        <p class="lead mb-4">Discover our exclusive collection of luxury timepieces, where craftsmanship meets sophistication.</p>
+        <div class="d-flex gap-3">
+          <a routerLink="/products" class="btn btn-primary">Explore Collection</a>
+          <a routerLink="/about" class="btn btn-secondary">Our Story</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Products -->
+<section class="featured-products py-5">
+  <div class="container">
+    <h2 class="text-center mb-5">
+      <span class="gold-text">Featured Collection</span>
+    </h2>
+    <div class="row g-4">
+      <div class="col-md-4" *ngFor="let product of featuredProducts">
+        <div class="card product-card h-100">
+          <img [src]="product.imageUrl" [alt]="product.name" class="card-img-top product-image">
+          <div class="card-body">
+            <h5 class="card-title product-title">{{product.name}}</h5>
+            <p class="card-text product-description">{{product.description}}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="product-price">${{product.price}}</span>
+              <button class="btn btn-primary" (click)="addToCart(product)">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Brand Story -->
+<section class="brand-story py-5 bg-light">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <h2 class="mb-4">
+          <span class="gold-text">Our Heritage</span>
+        </h2>
+        <p class="lead">Since 1990, Royal Watches has been synonymous with luxury and precision timekeeping.</p>
+        <p>Each timepiece is a testament to our commitment to excellence, combining traditional craftsmanship with modern innovation.</p>
+        <a routerLink="/about" class="btn btn-primary mt-3">Learn More</a>
+      </div>
+      <div class="col-lg-6">
+        <img src="assets/images/heritage.jpg" alt="Royal Watches Heritage" class="img-fluid rounded royal-border">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="features py-5">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="text-center">
+          <i class="fas fa-gem fa-3x mb-3 gold-text"></i>
+          <h4>Premium Quality</h4>
+          <p>Only the finest materials and craftsmanship</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="text-center">
+          <i class="fas fa-shipping-fast fa-3x mb-3 gold-text"></i>
+          <h4>Worldwide Shipping</h4>
+          <p>Fast and secure delivery to your doorstep</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="text-center">
+          <i class="fas fa-shield-alt fa-3x mb-3 gold-text"></i>
+          <h4>Secure Payment</h4>
+          <p>Safe and protected transactions</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter -->
+<section class="newsletter py-5 bg-dark text-light">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 text-center">
+        <h3 class="mb-4">Join Our Royal Circle</h3>
+        <p>Subscribe to receive updates about new collections and exclusive offers.</p>
+        <form class="d-flex gap-2 justify-content-center">
+          <input type="email" class="form-control" placeholder="Enter your email">
+          <button type="submit" class="btn btn-secondary">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section> 
